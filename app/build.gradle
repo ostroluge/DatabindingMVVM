@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+apply from: "$rootDir/utils.gradle"
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    signingConfigs {
+        prod {
+            keyAlias 'DatabindingMVVM'
+            storeFile file("$rootDir/dbmvvm.jks")
+            keyPassword 'dbmvvmostro'
+            storePassword 'dbmvvmostro'
+        }
+        dev {
+            keyAlias 'DatabindingMVVM'
+            storeFile file("$rootDir/dbmvvm.jks")
+            keyPassword 'dbmvvmostro'
+            storePassword 'dbmvvmostro'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.ostro.databindingmvvm"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 100
+        versionName "1.0.0"
+    }
+
+    productFlavors {
+        dev {
+            minSdkVersion 21
+            applicationId "${defaultConfig.applicationId}.${name}"
+        }
+        prod {
+            minSdkVersion 16
+            applicationId "${defaultConfig.applicationId}"
+        }
+    }
+
+    buildTypes {
+        release {
+            productFlavors.dev.signingConfig signingConfigs.dev
+            productFlavors.prod.signingConfig signingConfigs.prod
+
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig null
+
+            productFlavors.dev.signingConfig signingConfigs.dev
+            productFlavors.prod.signingConfig signingConfigs.prod
+
+            versionNameSuffix "-DEV"
+            minifyEnabled false
+            debuggable true
+        }
+    }
+
+    // rename the output apk file when it's a release version
+    applicationVariants.all { variant ->
+        def flavorName = variant.productFlavors.get(0).name;
+        def buildTypeName = variant.buildType.name;
+        if (buildTypeName == "release") {
+            variant.outputs.each { output ->
+                output.outputFile = new File("$rootDir/apk".toString(),
+                        "apk_release_" + flavorName + "-c" + versionCode + "_v" + versionName + ".apk");
+            }
+        }
+
+//        Properties networkProperties = new Properties()
+//        networkProperties.load(new FileInputStream("$rootDir/app/src/" + flavorName + "/network.properties"))
+//
+//        if (flavorName == "prod" || buildTypeName == "release") {
+//            variant.buildConfigField 'String', 'API_URL', toJavaCodeString(networkProperties.API_URL_PROD)
+//        } else {
+//            variant.buildConfigField 'String', 'API_URL', toJavaCodeString(networkProperties.API_URL_RUNSCOPE)
+//        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+}
