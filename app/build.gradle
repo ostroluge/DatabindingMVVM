@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 apply from: "$rootDir/utils.gradle"
 
 android {
@@ -93,4 +108,14 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+
+    final SUPPORT_LIBRARY_VERSION = '24.2.1'
+
+    compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+    compile 'com.jakewharton.timber:timber:4.3.1'
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.5@aar') {
+        transitive = true;
+    }
+    compile 'com.trello:rxlifecycle:0.3.0'
+    compile 'com.trello:rxlifecycle-components:0.3.0'
 }

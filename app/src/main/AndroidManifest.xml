@@ -2,19 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ostro.databindingmvvm">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name="com.ostro.databindingmvvm.DatabindingMVVMApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ccfc48c80eba8c5019df8a07caf1f435cfb59e56" />
     </application>
 
 </manifest>
