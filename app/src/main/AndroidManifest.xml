@@ -22,6 +22,8 @@
 
         <activity android:name=".ui.user.UserFormActivity" />
 
+        <activity android:name=".ui.list.UserListActivity" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="ccfc48c80eba8c5019df8a07caf1f435cfb59e56" />

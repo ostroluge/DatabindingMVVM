@@ -3,12 +3,14 @@ package com.ostro.databindingmvvm.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import io.realm.RealmObject;
+
 /**
  * Created by Thomas Ostrowski
  * ostrowski.thomas@gmail.com
  */
 
-public class User implements Parcelable {
+public class User extends RealmObject implements Parcelable {
 
     private String username;
     private String firstName;

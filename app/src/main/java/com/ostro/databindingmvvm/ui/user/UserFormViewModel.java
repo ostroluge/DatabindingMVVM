@@ -9,6 +9,7 @@ import com.ostro.databindingmvvm.R;
 import com.ostro.databindingmvvm.base.mvvm.BaseViewModel;
 import com.ostro.databindingmvvm.model.User;
 
+import io.realm.Realm;
 import timber.log.Timber;
 
 public class UserFormViewModel extends BaseViewModel<UserFormViewState> {
@@ -30,6 +31,10 @@ public class UserFormViewModel extends BaseViewModel<UserFormViewState> {
         if (user != null) {
             Timber.d(user.toString());
             if (allFilledUp(user)) {
+                Realm realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
+                realm.copyToRealm(user);
+                realm.commitTransaction();
                 Toast.makeText(mActivity, mActivity.getString(R.string.form_signed_up_successfully), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(mActivity, mActivity.getString(R.string.form_fill_in_all_fields), Toast.LENGTH_SHORT).show();

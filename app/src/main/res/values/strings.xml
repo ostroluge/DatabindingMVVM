@@ -7,6 +7,7 @@
     <string name="error.unknown">Il semble que quelque chose n\'ait pas fonctionné correctement&#8230;</string>
 
     <string name="main.label_sign_up">Sign Up</string>
+    <string name="main.label_list_users">User list</string>
 
     <string name="form_username">Username</string>
     <string name="form_first_name">First Name</string>

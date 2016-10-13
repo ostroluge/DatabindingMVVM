@@ -35,7 +35,15 @@
                 android:text="@string/main.label_sign_up"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:onClick="@{(view) -> mainActivityVm.userFormClick(view)}" />
+                android:onClick="@{(view) -> mainActivityVm.signUp(view)}" />
+
+            <Button
+                android:id="@+id/btn_list_users"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/main.label_list_users"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:onClick="@{(view) -> mainActivityVm.launchList(view)}"/>
         </LinearLayout>
 
     </LinearLayout>
