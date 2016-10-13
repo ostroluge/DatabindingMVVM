@@ -1,4 +1,4 @@
-package com.ostro.databindingmvvm.base.viewmodel;
+package com.ostro.databindingmvvm.base.mvvm;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

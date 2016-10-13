@@ -15,10 +15,6 @@ import com.ostro.databindingmvvm.base.recycler.holder.OnItemLongClickListener;
 
 import java.util.List;
 
-/**
- * Created by Nicolas Dumont
- * nicolas@tymate.com
- */
 public abstract class BindingRecyclerAdapter<O> extends RecyclerView.Adapter<BindingHolder> {
 
     private OnItemClickListener mOnItemClickListener;

@@ -1,4 +1,4 @@
-package com.ostro.databindingmvvm.base.viewmodel;
+package com.ostro.databindingmvvm.base.mvvm;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -8,9 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ostro.databindingmvvm.base.BaseFragment;
+import com.ostro.databindingmvvm.base.BaseDialogFragment;
 
-public abstract class BaseMvvmFragment<VB extends ViewDataBinding> extends BaseFragment {
+
+public abstract class BaseMvvmDialogFragment<VB extends ViewDataBinding> extends BaseDialogFragment {
 
     private VB mBinding;
 

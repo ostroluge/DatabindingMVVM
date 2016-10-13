@@ -1,20 +1,11 @@
-buildscript {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
-
-    dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
-    }
-}
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
-
-repositories {
-    maven { url 'https://maven.fabric.io/public' }
-}
-
+apply plugin: 'me.tatarka.retrolambda'
 apply from: "$rootDir/utils.gradle"
+
+retrolambda {
+    javaVersion JavaVersion.VERSION_1_7
+}
 
 android {
     compileSdkVersion 24
@@ -96,6 +87,11 @@ android {
 //        }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     dataBinding {
         enabled = true
     }
@@ -110,6 +106,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     final SUPPORT_LIBRARY_VERSION = '24.2.1'
+    final RETROFIT_VERSION = '2.1.0'
+    final OKHTTP_VERSION = '3.3.1'
 
     compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
     compile 'com.jakewharton.timber:timber:4.3.1'
@@ -118,4 +116,14 @@ dependencies {
     }
     compile 'com.trello:rxlifecycle:0.3.0'
     compile 'com.trello:rxlifecycle-components:0.3.0'
+
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+
+    compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
+
+    compile "com.squareup.okhttp3:okhttp:$OKHTTP_VERSION"
+    compile "com.squareup.okhttp3:logging-interceptor:$OKHTTP_VERSION"
 }

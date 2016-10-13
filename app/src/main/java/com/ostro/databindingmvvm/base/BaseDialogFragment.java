@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
 
-/**
- * Created by Nicolas Dumont
- * nicolas@tymate.com
- */
 public abstract class BaseDialogFragment extends DialogFragment {
 
     private boolean stop = false;

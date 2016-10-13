@@ -1,40 +1,25 @@
-package com.ostro.databindingmvvm.base.viewmodel;
+package com.ostro.databindingmvvm.base.mvvm;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.ostro.databindingmvvm.base.BaseDialogFragment;
+import com.ostro.databindingmvvm.base.BaseActivity;
 
 
-public abstract class BaseMvvmDialogFragment<VB extends ViewDataBinding> extends BaseDialogFragment {
-
-    private VB mBinding;
+public abstract class BaseMvvmActivity<VB extends ViewDataBinding> extends BaseActivity {
 
     private MvvmLifeCycleDelegate mMvvmLifeCycleDelegate;
+    private VB mBinding;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mMvvmLifeCycleDelegate = new MvvmLifeCycleDelegate();
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
-        return mBinding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         mMvvmLifeCycleDelegate.onCreate(getViewModels(), savedInstanceState);
-        onViewCreated(mBinding);
+        mBinding = DataBindingUtil.setContentView(this, getLayoutId());
+        onViewCreated(savedInstanceState, mBinding);
     }
 
     public VB getViewBinding() {
@@ -42,13 +27,13 @@ public abstract class BaseMvvmDialogFragment<VB extends ViewDataBinding> extends
     }
 
     @Override
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
         mMvvmLifeCycleDelegate.onStart(this);
     }
 
     @Override
-    public void onStop() {
+    protected void onStop() {
         super.onStop();
         mMvvmLifeCycleDelegate.onStop();
     }
@@ -61,8 +46,8 @@ public abstract class BaseMvvmDialogFragment<VB extends ViewDataBinding> extends
 
     protected abstract int getLayoutId();
 
+    protected abstract void onViewCreated(Bundle savedInstanceState, VB binding);
+
     @Nullable
     protected abstract BaseViewModel[] getViewModels();
-
-    protected abstract void onViewCreated(VB binding);
 }

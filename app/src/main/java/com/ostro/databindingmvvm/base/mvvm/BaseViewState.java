@@ -1,4 +1,4 @@
-package com.ostro.databindingmvvm.base.viewmodel;
+package com.ostro.databindingmvvm.base.mvvm;
 
 import android.databinding.BaseObservable;
 import android.os.Parcelable;

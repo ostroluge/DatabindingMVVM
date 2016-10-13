@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="colorControlHighlightOpacitySmall">#50555555</color>
+
+    <color name="colorControlHighlight">#FFFFFF</color>
+    <color name="colorControlHighlightOpacity">#BFFFFFFF</color>
+
+    <color name="textColorDark">#333333</color>
+    <color name="textColorLight">#FFFFFF</color>
 </resources>

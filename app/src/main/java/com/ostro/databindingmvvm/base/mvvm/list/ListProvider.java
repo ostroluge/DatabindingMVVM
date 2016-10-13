@@ -1,4 +1,4 @@
-package com.ostro.databindingmvvm.base.viewmodel.list;
+package com.ostro.databindingmvvm.base.mvvm.list;
 
 import android.databinding.ObservableField;
 import android.support.v7.widget.LinearLayoutManager;

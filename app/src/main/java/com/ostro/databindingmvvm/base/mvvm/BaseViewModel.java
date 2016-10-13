@@ -1,4 +1,4 @@
-package com.ostro.databindingmvvm.base.viewmodel;
+package com.ostro.databindingmvvm.base.mvvm;
 
 import android.databinding.BaseObservable;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-import rx.Observable;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 import timber.log.Timber;
