@@ -1,4 +1,4 @@
-package com.ostro.databindingmvvm.ui.user;
+package com.ostro.databindingmvvm.ui.sign_up;
 
 import android.databinding.Bindable;
 import android.os.Parcel;
@@ -7,15 +7,15 @@ import com.ostro.databindingmvvm.BR;
 import com.ostro.databindingmvvm.base.mvvm.BaseViewState;
 import com.ostro.databindingmvvm.model.User;
 
-public class UserFormViewState extends BaseViewState {
+public class SignUpViewState extends BaseViewState {
 
     private User mUser;
 
-    public UserFormViewState() {
+    public SignUpViewState() {
 
     }
 
-    public UserFormViewState(User mUser) {
+    public SignUpViewState(User mUser) {
         this.mUser = mUser;
     }
 
@@ -40,19 +40,19 @@ public class UserFormViewState extends BaseViewState {
         dest.writeParcelable(this.mUser, flags);
     }
 
-    protected UserFormViewState(Parcel in) {
+    protected SignUpViewState(Parcel in) {
         this.mUser = in.readParcelable(User.class.getClassLoader());
     }
 
-    public static final Creator<UserFormViewState> CREATOR = new Creator<UserFormViewState>() {
+    public static final Creator<SignUpViewState> CREATOR = new Creator<SignUpViewState>() {
         @Override
-        public UserFormViewState createFromParcel(Parcel source) {
-            return new UserFormViewState(source);
+        public SignUpViewState createFromParcel(Parcel source) {
+            return new SignUpViewState(source);
         }
 
         @Override
-        public UserFormViewState[] newArray(int size) {
-            return new UserFormViewState[size];
+        public SignUpViewState[] newArray(int size) {
+            return new SignUpViewState[size];
         }
     };
 }

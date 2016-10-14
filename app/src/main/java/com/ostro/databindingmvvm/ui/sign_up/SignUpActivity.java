@@ -1,4 +1,4 @@
-package com.ostro.databindingmvvm.ui.user;
+package com.ostro.databindingmvvm.ui.sign_up;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,20 +6,20 @@ import android.support.annotation.Nullable;
 import com.ostro.databindingmvvm.R;
 import com.ostro.databindingmvvm.base.mvvm.BaseMvvmActivity;
 import com.ostro.databindingmvvm.base.mvvm.BaseViewModel;
-import com.ostro.databindingmvvm.databinding.ActivityUserFormBinding;
+import com.ostro.databindingmvvm.databinding.ActivitySignUpBinding;
 
-public class UserFormActivity extends BaseMvvmActivity<ActivityUserFormBinding> {
+public class SignUpActivity extends BaseMvvmActivity<ActivitySignUpBinding> {
 
-    private UserFormViewModel mUserFormViewModel;
+    private SignUpViewModel mSignUpViewModel;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_user_form;
+        return R.layout.activity_sign_up;
     }
 
     @Override
-    protected void onViewCreated(Bundle savedInstanceState, ActivityUserFormBinding binding) {
-        binding.setUserFormVm(mUserFormViewModel);
+    protected void onViewCreated(Bundle savedInstanceState, ActivitySignUpBinding binding) {
+        binding.setSignUpVm(mSignUpViewModel);
     }
 
     @Override
@@ -30,12 +30,12 @@ public class UserFormActivity extends BaseMvvmActivity<ActivityUserFormBinding> 
     @Nullable
     @Override
     protected BaseViewModel[] getViewModels() {
-        return new BaseViewModel[]{mUserFormViewModel};
+        return new BaseViewModel[]{mSignUpViewModel};
     }
 
     @Override
     public void injectDependencies() {
-        mUserFormViewModel = new UserFormViewModel(this);
+        mSignUpViewModel = new SignUpViewModel(this);
     }
 
     @Override

@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.user.UserFormActivity" />
+        <activity android:name=".ui.sign_up.SignUpActivity" />
 
-        <activity android:name=".ui.list.UserListActivity" />
+        <activity android:name=".ui.users.UsersActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"

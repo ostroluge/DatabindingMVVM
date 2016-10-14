@@ -3,8 +3,8 @@
 
     <data>
         <variable
-            name="userFormVm"
-            type="com.ostro.databindingmvvm.ui.user.UserFormViewModel" />
+            name="signUpVm"
+            type="com.ostro.databindingmvvm.ui.sign_up.SignUpViewModel" />
     </data>
 
     <LinearLayout
@@ -37,9 +37,9 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/form_username"
                     android:imeOptions="actionNext"
-                    android:inputType="textCapWords"
+                    android:inputType="text"
                     android:maxLines="1"
-                    android:text="@={userFormVm.viewState.user.username}" />
+                    android:text="@={signUpVm.viewState.user.username}" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -54,7 +54,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="textCapWords"
                     android:maxLines="1"
-                    android:text="@={userFormVm.viewState.user.firstName}" />
+                    android:text="@={signUpVm.viewState.user.firstName}" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -69,7 +69,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="textCapWords"
                     android:maxLines="1"
-                    android:text="@={userFormVm.viewState.user.lastName}" />
+                    android:text="@={signUpVm.viewState.user.lastName}" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -84,7 +84,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:text="@={userFormVm.viewState.user.email}" />
+                    android:text="@={signUpVm.viewState.user.email}" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -99,7 +99,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:text="@={userFormVm.viewState.user.password}" />
+                    android:text="@={signUpVm.viewState.user.password}" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:text="@string/form.sign_up"
-                android:onClick="@{() -> userFormVm.signUpUser()}"/>
+                android:onClick="@{() -> signUpVm.signUpUser()}"/>
 
         </LinearLayout>
 

@@ -6,8 +6,8 @@ import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.ostro.databindingmvvm.base.mvvm.BaseViewModel;
-import com.ostro.databindingmvvm.ui.list.UserListActivity;
-import com.ostro.databindingmvvm.ui.user.UserFormActivity;
+import com.ostro.databindingmvvm.ui.users.UsersActivity;
+import com.ostro.databindingmvvm.ui.sign_up.SignUpActivity;
 
 import timber.log.Timber;
 
@@ -27,13 +27,13 @@ public class MainActivityViewModel extends BaseViewModel<MainActivityViewState> 
 
     public void signUp(View view) {
         Timber.d("signUp");
-        Intent intent = new Intent(mActivity, UserFormActivity.class);
+        Intent intent = new Intent(mActivity, SignUpActivity.class);
         mActivity.startActivity(intent);
     }
 
     public void launchList(View view) {
         Timber.d("launchList");
-        Intent intent = new Intent(mActivity, UserListActivity.class);
+        Intent intent = new Intent(mActivity, UsersActivity.class);
         mActivity.startActivity(intent);
     }
 }

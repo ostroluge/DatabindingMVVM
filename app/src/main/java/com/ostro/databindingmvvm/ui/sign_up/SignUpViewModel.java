@@ -1,4 +1,4 @@
-package com.ostro.databindingmvvm.ui.user;
+package com.ostro.databindingmvvm.ui.sign_up;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -12,18 +12,18 @@ import com.ostro.databindingmvvm.model.User;
 import io.realm.Realm;
 import timber.log.Timber;
 
-public class UserFormViewModel extends BaseViewModel<UserFormViewState> {
+public class SignUpViewModel extends BaseViewModel<SignUpViewState> {
 
     private Activity mActivity;
 
-    public UserFormViewModel(Activity mActivity) {
+    public SignUpViewModel(Activity mActivity) {
         this.mActivity = mActivity;
     }
 
     @NonNull
     @Override
-    public UserFormViewState createViewState() {
-        return new UserFormViewState(new User());
+    public SignUpViewState createViewState() {
+        return new SignUpViewState(new User());
     }
 
     public void signUpUser() {
