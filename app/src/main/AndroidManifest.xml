@@ -24,6 +24,8 @@
 
         <activity android:name=".ui.users.UsersActivity" />
 
+        <activity android:name=".ui.profile.ProfileActivity" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="ccfc48c80eba8c5019df8a07caf1f435cfb59e56" />

@@ -1,6 +1,7 @@
 package com.ostro.databindingmvvm.ui.users;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,17 +11,18 @@ import com.ostro.databindingmvvm.base.BaseActivity;
 import com.ostro.databindingmvvm.base.mvvm.list.BaseListViewModel;
 import com.ostro.databindingmvvm.base.recycler.adapter.BindingRecyclerAdapter;
 import com.ostro.databindingmvvm.model.User;
+import com.ostro.databindingmvvm.ui.profile.ProfileActivity;
 import com.ostro.databindingmvvm.util.NetworkUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 import rx.Observable;
 import timber.log.Timber;
 
 public class UsersViewModel extends BaseListViewModel<User, UsersViewState> {
+
+    private Activity mActivity;
 
     public UsersViewModel(BaseActivity baseActivity,
                           Resources resources,
@@ -28,6 +30,7 @@ public class UsersViewModel extends BaseListViewModel<User, UsersViewState> {
                           BindingRecyclerAdapter<User> adapter) {
 
         super(baseActivity, resources, networkUtils, adapter);
+        mActivity = baseActivity;
     }
 
     @NonNull
@@ -57,7 +60,9 @@ public class UsersViewModel extends BaseListViewModel<User, UsersViewState> {
         if (user == null) {
             return;
         }
-        Timber.d("You clicked on : %s", user.getFirstName());
+        Intent intent = new Intent(mActivity, ProfileActivity.class);
+        intent.putExtra("USER", user);
+        mActivity.startActivity(intent);
     }
 
     @Override

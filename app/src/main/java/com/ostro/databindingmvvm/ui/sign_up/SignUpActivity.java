@@ -41,15 +41,6 @@ public class SignUpActivity extends BaseMvvmActivity<ActivitySignUpBinding> {
     @Override
     protected void onStart() {
         super.onStart();
-        setTitle(getActivityTitle());
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    private String getActivityTitle() {
-        return "Sign Up";
+        setTitle("Sign Up");
     }
 }
